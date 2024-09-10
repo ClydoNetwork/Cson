@@ -25,7 +25,6 @@ import lombok.experimental.UtilityClass;
 import lombok.val;
 import net.clydo.cson.element.*;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 @UtilityClass
 public class CsonUtil {
@@ -91,40 +90,40 @@ public class CsonUtil {
         throw new IllegalArgumentException("Cannot convert " + value + " to a CsonElement");
     }
 
-    public static String getType(@Nullable CsonElement json) {
-        String s = abbreviateMiddle(String.valueOf(json), "...", 20);
+//    public static String getType(@Nullable CsonElement json) {
+//        String s = abbreviateMiddle(String.valueOf(json), "...", 20);
+//
+//        if (json == null) {
+//            return "null (missing)";
+//        } else if (json.isNull()) {
+//            return "null (json)";
+//        } else if (json.isArray()) {
+//            return "an array (" + s + ")";
+//        } else if (json.isObject()) {
+//            return "an object (" + s + ")";
+//        } else {
+//            if (json.isPrimitive()) {
+//                val primitive = json.asPrimitive();
+//                if (primitive.isNumber()) {
+//                    return "a number (" + s + ")";
+//                }
+//                if (primitive.isBoolean()) {
+//                    return "a boolean (" + s + ")";
+//                }
+//            }
+//            return s;
+//        }
+//    }
 
-        if (json == null) {
-            return "null (missing)";
-        } else if (json.isNull()) {
-            return "null (json)";
-        } else if (json.isArray()) {
-            return "an array (" + s + ")";
-        } else if (json.isObject()) {
-            return "an object (" + s + ")";
-        } else {
-            if (json.isPrimitive()) {
-                val primitive = json.asPrimitive();
-                if (primitive.isNumber()) {
-                    return "a number (" + s + ")";
-                }
-                if (primitive.isBoolean()) {
-                    return "a boolean (" + s + ")";
-                }
-            }
-            return s;
-        }
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static String abbreviateMiddle(String str, String middle, int length) {
-        if (str == null || middle == null || str.isEmpty() || middle.isEmpty() || length >= str.length() || length < middle.length() + 2) {
-            return str;
-        }
-
-        int targetString = length - middle.length();
-        int startOffset = (targetString + 1) / 2;
-        int endOffset = str.length() - targetString / 2;
-        return str.substring(0, startOffset) + middle + str.substring(endOffset);
-    }
+//    @SuppressWarnings("SameParameterValue")
+//    private static String abbreviateMiddle(String str, String middle, int length) {
+//        if (str == null || middle == null || str.isEmpty() || middle.isEmpty() || length >= str.length() || length < middle.length() + 2) {
+//            return str;
+//        }
+//
+//        int targetString = length - middle.length();
+//        int startOffset = (targetString + 1) / 2;
+//        int endOffset = str.length() - targetString / 2;
+//        return str.substring(0, startOffset) + middle + str.substring(endOffset);
+//    }
 }
