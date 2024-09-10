@@ -125,10 +125,24 @@ public abstract class CsonElement {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public boolean asBoolean(final boolean defaultValue) {
+        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isBoolean()) {
+            return jsonPrimitive.asBoolean();
+        }
+        return defaultValue;
+    }
+
     //endregion
     //region String & Char
     public String asString() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
+    }
+
+    public String asStringOr(final String defaultValue) {
+        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
+            return jsonPrimitive.asString();
+        }
+        return defaultValue;
     }
 
     public char asChar() {
@@ -139,42 +153,119 @@ public abstract class CsonElement {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public char asChar(final char defaultValue) {
+        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
+            return jsonPrimitive.asChar();
+        }
+        return defaultValue;
+    }
+
+    public char asChar(final int index, final char defaultValue) {
+        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
+            return jsonPrimitive.asChar(index);
+        }
+        return defaultValue;
+    }
+
     //endregion
     //region Numbers
     public Number asNumber() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public Number asNumber(final Number defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asNumber();
+        }
+        return defaultValue;
+    }
+
     public byte asByte() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
+    }
+
+    public byte asByte(final byte defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asByte();
+        }
+        return defaultValue;
     }
 
     public short asShort() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public short asShort(final short defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asShort();
+        }
+        return defaultValue;
+    }
+
     public int asInt() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
+    }
+
+    public int asInt(final int defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asInt();
+        }
+        return defaultValue;
     }
 
     public float asFloat() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public float asFloat(final float defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asFloat();
+        }
+        return defaultValue;
+    }
+
     public double asDouble() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
+    }
+
+    public double asDouble(final double defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asDouble();
+        }
+        return defaultValue;
     }
 
     public long asLong() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public long asLong(final long defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asLong();
+        }
+        return defaultValue;
+    }
+
     public BigInteger asBigInteger() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
     }
 
+    public BigInteger asBigInteger(final BigInteger defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asBigInteger();
+        }
+        return defaultValue;
+    }
+
     public BigDecimal asBigDecimal() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName());
+    }
+
+    public BigDecimal asBigDecimal(final BigDecimal defaultValue) {
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isNumber()) {
+            return csonPrimitive.asBigDecimal();
+        }
+        return defaultValue;
     }
     //endregion
     //endregion
