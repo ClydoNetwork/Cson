@@ -126,8 +126,8 @@ public abstract class CsonElement {
     }
 
     public boolean asBoolean(final boolean defaultValue) {
-        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isBoolean()) {
-            return jsonPrimitive.asBoolean();
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isBoolean()) {
+            return csonPrimitive.asBoolean();
         }
         return defaultValue;
     }
@@ -139,8 +139,8 @@ public abstract class CsonElement {
     }
 
     public String asStringOr(final String defaultValue) {
-        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
-            return jsonPrimitive.asString();
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isString()) {
+            return csonPrimitive.asString();
         }
         return defaultValue;
     }
@@ -154,15 +154,15 @@ public abstract class CsonElement {
     }
 
     public char asChar(final char defaultValue) {
-        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
-            return jsonPrimitive.asChar();
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isString()) {
+            return csonPrimitive.asChar();
         }
         return defaultValue;
     }
 
     public char asChar(final int index, final char defaultValue) {
-        if (this instanceof CsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
-            return jsonPrimitive.asChar(index);
+        if (this instanceof CsonPrimitive csonPrimitive && csonPrimitive.isString()) {
+            return csonPrimitive.asChar(index);
         }
         return defaultValue;
     }
