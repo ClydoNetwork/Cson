@@ -97,6 +97,14 @@ public class CsonObject extends CsonElement implements Iterable<Map.Entry<String
         return this.putUnknown(key, value);
     }
 
+    public CsonObject put(String key, CsonObject value, boolean putIfNotEmpty) {
+        if (value != null && !value.isEmpty() && putIfNotEmpty) {
+            this.putUnknown(key, value);
+        }
+
+        return this;
+    }
+
     public CsonObject put(String key, CsonElement value, CsonElement defaultValue) {
         return this.putUnknown(key, value, defaultValue);
     }
