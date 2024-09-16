@@ -31,6 +31,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public class CsonObject extends CsonElement implements Iterable<Map.Entry<String, CsonElement>> {
@@ -48,6 +49,14 @@ public class CsonObject extends CsonElement implements Iterable<Map.Entry<String
     public CsonObject putUnknown(String key, Object value) {
         val psonElement = CsonUtil.toElement(value);
         this.members.put(key, psonElement);
+        return this;
+    }
+
+    public CsonObject putUnknown(String key, Object value, Object defaultValue) {
+        if (Objects.equals(value, defaultValue)) {
+            val psonElement = CsonUtil.toElement(value);
+            this.members.put(key, psonElement);
+        }
         return this;
     }
 
@@ -88,20 +97,40 @@ public class CsonObject extends CsonElement implements Iterable<Map.Entry<String
         return this.putUnknown(key, value);
     }
 
+    public CsonObject put(String key, CsonElement value, CsonElement defaultValue) {
+        return this.putUnknown(key, value, defaultValue);
+    }
+
     public CsonObject put(String key, String value) {
         return this.putUnknown(key, value);
+    }
+
+    public CsonObject put(String key, String value, String defaultValue) {
+        return this.putUnknown(key, value, defaultValue);
     }
 
     public CsonObject put(String key, Number value) {
         return this.putUnknown(key, value);
     }
 
+    public CsonObject put(String key, Number value, Number defaultValue) {
+        return this.putUnknown(key, value, defaultValue);
+    }
+
     public CsonObject put(String key, Boolean value) {
         return this.putUnknown(key, value);
     }
 
+    public CsonObject put(String key, Boolean value, Boolean defaultValue) {
+        return this.putUnknown(key, value, defaultValue);
+    }
+
     public CsonObject put(String key, Character value) {
         return this.putUnknown(key, value);
+    }
+
+    public CsonObject put(String key, Character value, Character defaultValue) {
+        return this.putUnknown(key, value, defaultValue);
     }
 
     @CanIgnoreReturnValue
