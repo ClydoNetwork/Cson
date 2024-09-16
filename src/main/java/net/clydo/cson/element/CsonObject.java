@@ -53,7 +53,7 @@ public class CsonObject extends CsonElement implements Iterable<Map.Entry<String
     }
 
     public CsonObject putUnknown(String key, Object value, Object defaultValue) {
-        if (Objects.equals(value, defaultValue)) {
+        if (!Objects.equals(value, defaultValue)) {
             val psonElement = CsonUtil.toElement(value);
             this.members.put(key, psonElement);
         }
